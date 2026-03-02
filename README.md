@@ -237,8 +237,8 @@ Ikuti saran yang ditampilkan oleh `flutter doctor`. Umumnya perlu:
 
 ## 👤 Author
 
-**Mahasiswa — Praktikum Pemrograman Mobile Semester 6**
+**Zaki Muhamad — Praktikum Pemrograman Mobile Semester 6**
 
 ---
 
-<p align="center">Made with ❤️ and Flutter</p>
+<p align="center">Made with Flutter</p>
