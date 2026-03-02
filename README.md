@@ -237,7 +237,7 @@ Ikuti saran yang ditampilkan oleh `flutter doctor`. Umumnya perlu:
 
 ## 👤 Author
 
-**Zaki Muhamad — Praktikum Pemrograman Mobile Semester 6**
+**Zaki Muhamad (2306094) — Praktikum Pemrograman Mobile Semester 6**
 
 ---
 
