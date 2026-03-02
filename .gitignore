@@ -1,0 +1,89 @@
+# =========================
+# Flutter / Dart
+# =========================
+
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+build/
+coverage/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Generated plugin registrant
+**/generated_plugin_registrant.dart
+
+# =========================
+# Android
+# =========================
+
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+android/captures/
+*.jks
+*.keystore
+
+# =========================
+# iOS
+# =========================
+
+ios/Flutter/.last_build_id
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/App.framework
+
+# =========================
+# macOS
+# =========================
+
+macos/Flutter/GeneratedPluginRegistrant.swift
+
+# =========================
+# Windows
+# =========================
+
+windows/flutter/ephemeral/
+
+# =========================
+# Linux
+# =========================
+
+linux/flutter/ephemeral/
+
+# =========================
+# Web
+# =========================
+
+web/.dart_tool/
+
+# =========================
+# IDE
+# =========================
+
+.idea/
+*.iml
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# =========================
+# Misc
+# =========================
+
+*.log
+*.tmp
+*.swp
+*.pyc
+.DS_Store
+Thumbs.db
+
+# =========================
+# Testing
+# =========================
+
+test_driver/
