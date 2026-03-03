@@ -1,94 +1,178 @@
 import 'package:flutter/material.dart';
-import 'package:device_preview/device_preview.dart';
 
 void main() {
-  runApp(DevicePreview(enabled: true, builder: (context) => const MyApp()));
+  runApp(HomePage());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class HomePage extends StatelessWidget {
+  final List<Map<String, String>> komentar = [
+    {
+      "nama": "Alexis Sanchez",
+      "isi": "Wahh Baru Tau Nih kalo Donald Trump Anjing",
+    },
+    {"nama": "Michael Jordan", "isi": "Anjingnya Nganjing Banget"},
+    {"nama": "Joko Widodo", "isi": "Wahhh Parah Nihhh Anjingnya"},
+    {
+      "nama": "Vladimir Putin",
+      "isi": "Udah Gua Bilang Dari Awal Kalo Dia Tuh Anjing Nya Israel",
+    },
+    {"nama": "Kim Jong Un", "isi": "Kuyy Ahh njing"},
+    {
+      "nama": "Mohamed Bin Salman",
+      "isi": "Kawanku Kasian Sekali Dikutuk jadi Anjing",
+    },
+    {"nama": "Netanyahu", "isi": "Euuu Bestiee kuuu"},
+    {"nama": "Ali Khamenei", "isi": "Terkutuklah kauuu njing"},
+    {"nama": "Prabowo Subianto", "isi": "MBG Gratis Nich, Pakai Daging Anjing"},
+    {
+      "nama": "Barack Obama",
+      "isi": "Alhamdulillah Aku Gak Dhzolim dan Dikutuk Jadi Anjing",
+    },
+    {
+      "nama": "Megawati Soekarnoputri",
+      "isi": "Mending Gua Korupsi Aja Daripada Liat Ginian",
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      useInheritedMediaQuery: true,
-      builder: DevicePreview.appBuilder,
-      locale: DevicePreview.locale(context),
       debugShowCheckedModeBanner: false,
-      home: const WelcomeScreen(),
-    );
-  }
-}
-
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor:
-          Colors.teal[800],
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Selamat Datang di",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              const SizedBox(height: 8),
-              const Text(
-                "DIGARUT",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2.0,
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Text(
-                "Temukan keindahan alam, budaya, dan kuliner tersembunyi di kota Garut. Mulai petualanganmu sekarang!",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  height: 1.5,
-                ),
-              ),
-              const SizedBox(height: 40),
-
-              SizedBox(
-                width: double.infinity,
-                height: 55,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.teal[50],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+      home: Scaffold(
+        backgroundColor: Colors.grey[100],
+        appBar: AppBar(
+          elevation: 3,
+          backgroundColor: Colors.red.shade700,
+          centerTitle: true,
+          title: Text(
+            "Aplikasi Berita",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.newspaper, color: Colors.red.shade700),
+                    SizedBox(width: 8),
+                    Text(
+                      "Artikel Terbaru",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
+                  ],
+                ),
+
+                SizedBox(height: 12),
+                Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
-                  onPressed: () {
-                    print("Tombol ditekan!");
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(15),
+                        ),
+                        child: Image.network(
+                          'https://picsum.photos/id/237/400/250',
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: 200,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Donald Trump Berubah Menjadi Anjing",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 6),
+                            Text(
+                              "Hal yang tidak pernah kamu ketahui tentang Donald Trump.",
+                              style: TextStyle(color: Colors.grey[700]),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                SizedBox(height: 25),
+
+                Text(
+                  "Komentar",
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                ),
+
+                SizedBox(height: 10),
+
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: komentar.length,
+                  itemBuilder: (context, index) {
+                    final data = komentar[index];
+                    return Card(
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: Colors.red.shade400,
+                              child: Text(
+                                data["nama"]![0],
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    data["nama"]!,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    data["isi"]!,
+                                    style: TextStyle(color: Colors.grey[800]),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
                   },
-                  child: Text(
-                    "Mulai Petualangan",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.teal[900],
-                    ),
-                  ),
                 ),
-              ),
-              const SizedBox(height: 10),
-            ],
+              ],
+            ),
           ),
         ),
       ),
